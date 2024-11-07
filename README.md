@@ -1,5 +1,12 @@
 # Probabilidade
 
+## Inserir dados no Rstudio
+
+```
+valores <- c(3.9, 3.9, 4.2, 4.5, 5.2, 5.2)
+df <- data.frame(Valores = valores)
+```
+
 ## Definições e fórmulas
 
 Definindo um evento, conhecemos o espaço amostral possível. Podemos calcular a probabilidade a Priori com
@@ -299,4 +306,19 @@ valor_testado = 80
 tcalc = ((media - valor_testado)/(dp/ n^0.5))
 ```
 
-TODO: fazer interpretação dos resultados.
+1) Hipôtese:
+Utilizaremos o teste bilateral para verificar se a área foliar média dessa espécie de algodoeiro é igual a 80cm.
+
+- h0: p = 80
+- h1: p != 80
+
+    p-valor = 0.04365472
+
+2) Decisão:
+Como o p-valor é menor do que o nível de significância, rejeitamos h0.
+
+3) Conclusão:
+Ao nível de significância de 5%, não temos evidencias o suficiente para afirmar que a área foliar média dessa espécie de algodoeiro é igual a 80 cm.
+
+4) Resposta:
+Não podemos afirmar que a área foliar dessa espécie de algodoeiro é igual a 80 cm.
