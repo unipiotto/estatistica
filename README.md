@@ -2,6 +2,7 @@
 
 1. [Dados emparelhados](#emparelhados)
 2. [Dados não emparelhados](#nao-emparelhados)
+3. [Correlação linear](#correlação-linear)
 
 ## Informações extras:
 - p-valor > α: aceita-se h0.
@@ -91,3 +92,105 @@ Resposta:
 2. Montar o teste de hipôtese
 3. Decisão: Como o p-valor(__) é __ do que o α(_). Aceita-se h0/h1.
 4. Conclusão: Com _% de confiança, (não) é possível afirmar que _.
+
+## Correlação linear
+
+A correlação linear mede a força e direção da relação linear entre duas variáveis quantitativas. Ela indica até que ponto uma variável tende a aumentar quando a outra também aumenta ou diminui.
+
+### Coeficiente de Correlação (r)
+
+O coeficiente de correlação de Pearson, é a medida que tem como finalidade avaliar a correlação linear. Seus valores variam entre -1 e +1:
+
+1. r = +1 : Correlação positiva perfeita. Isso significa, que, na medida que uma variável aumenta, a outra também aumenta de forma perfeitamente linear.
+
+2. r = 0 : Não há correlação linear entre as variáveis.
+
+3. r = -1 : Correlação negativa perfeita. Isso significa, que, na medida que uma variável aumenta, a outra diminui de forma perfeitamente linear.
+
+### Exemplo
+
+Um estudo foi realizado sobre a quantidade de açúcar convertido em um processo em várias temperaturas. Os dados foram codificados e registrados a seguir:
+
+![Exercicio de correlação linear](image-5.png)
+
+Rstudio:
+```
+dados <- data.frame(
+    temperatura = c(1, 1.1, 1.2 ...),
+    acucar = c(8.1, 7.8, 8.5 ...)
+)
+```
+
+1) Gerar o gráfico de dispersão dos dados
+
+Rcommander:
+1. Graphs
+2. XY conditioning plot
+
+![Gráfico de dispersão](image-6.png)
+
+Figura 1: Gráfico de dispersão da quantidade de açucar convertido (g) em diferentes temperaturas (C).
+
+### Regressão linear
+
+2) Encontre a equação linear e interprete as estimativas calculadas.
+
+Rcommander:
+1. Statistics
+2. Fit model
+3. Linear regression
+
+** 
+    Obs: é importante verificar qual vai ser a variável dependente e independente.
+    Na primeira coluna é a dependente, e a segunda é a independente.
+**
+
+![Resultado regressão linear](image-7.png)
+
+Desse resultado, é possível retirar muita informação.
+
+![equação linear](image-8.png)
+
+Interpretação:
+- B0 = 6.41 : Com a temperatura de 0 C, o acuçar convertido seria de, aproximadamente, 6.41 g.
+- B1 = 1.81 : A cada aumento de 1 C na temperatura, a massa de açucar convertido é aumentado em 1.81 g.
+
+3) Verifique se a o intercepto e a inclinação são significativos, ao nível de 5% de significância.
+
+![Hipotese do intercepto](image-10.png)
+
+![p-valor do intercepto](image-11.png)
+
+Decisão: Como o p-valor < 0.0001, é menor do que α(0.05), devemos aceitar h1.
+
+Conclusão: Com 5% de nível de significancia, podemos afirmar que o intercepto é significativo.
+
+![Hipotese da inclinação](image-13.png)
+
+![p-valor da inclinação](image-12.png)
+
+Decisão: Como o p-valor(0.015) é menor do que α(0.05), devemos aceitar h1.
+
+Conclusão: Com 5% de nível de significancia, podemos afirmar que a inclinação é significativa.
+
+3) Encontre o coeficiente de determinação e interprete-o.
+
+![coeficiente de determinação](image-14.png)
+
+R^2 = 0.4999. Aproximadamente 49.99% da variação de açucar convertido é explicada pelo modelo.
+
+4) Encontre o coeficiente de correlação linear.
+
+![coeficiente de corrrelação linear](image-15.png)
+
+r = 0.7070
+
+5) Com 5% de significancia, verifique se p = 0.
+
+![hipotese da correlação linear](image-16.png)
+
+![p-valor da correlação linear](image-17.png)
+
+Decisão: Como o p-valor(0.0150) é menor do que α(0.05), devemos aceitar h1.
+
+Conclusão: Com 5% de significancia, não podemos afirmar que p = 0.
